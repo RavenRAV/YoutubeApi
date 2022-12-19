@@ -8,11 +8,9 @@ import com.example.youtubeparcer.repository.Repository
 
 class DetailPlayListViewModel: BaseViewModel() {
 
-    var id = MutableLiveData<String>()
-
     private val repository = Repository()
 
-    fun getPlayListItems(): LiveData<PlayListItems?> {
+    fun getPlayListItems(id : String): LiveData<PlayListItems?> {
         return repository.getPlayListItems(id)
     }
 }

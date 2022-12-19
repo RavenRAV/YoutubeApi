@@ -27,12 +27,11 @@ class Repository {
         }
     }
 
-    fun getPlayListItems(id: MutableLiveData<String>): LiveData<PlayListItems?>{
+    fun getPlayListItems(id: String): LiveData<PlayListItems?>{
         return liveData(Dispatchers.IO){
             val response = apiService.getPlayListItems(
                 part = "snippet",
-                playlistId = id.toString(),
-//                playlistId = "PLRYgdCIHj6HVn_Nmd0gGc-1Unkkjq_-pl",
+                playlistId = id,
                 BuildConfig.API_KEY
             )
             if (response.isSuccessful){

@@ -11,7 +11,9 @@ data class ItemsPLI(
 
 data class SnippetPLI(
     val title: String,
-    val thumbnails: ThumbnailsPLI
+    val description : String,
+    val thumbnails: ThumbnailsPLI,
+    val resourceId : ResourceId
 )
 
 data class ThumbnailsPLI(
@@ -20,4 +22,8 @@ data class ThumbnailsPLI(
 
 data class StandardPLI(
     val url : String
+)
+
+data class ResourceId(
+    val videoId : String
 )
