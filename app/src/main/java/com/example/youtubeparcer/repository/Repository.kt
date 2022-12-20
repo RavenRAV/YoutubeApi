@@ -1,17 +1,14 @@
 package com.example.youtubeparcer.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.example.youtubeparcer.BuildConfig
-import com.example.youtubeparcer.core.network.RetrofitClient
+import com.example.youtubeparcer.data.remote.ApiService
 import com.example.youtubeparcer.data.remote.model.PlayListItems
 import com.example.youtubeparcer.data.remote.model.PlayLists
 import kotlinx.coroutines.Dispatchers
 
-class Repository {
-
-    private val apiService = RetrofitClient.create()
+class Repository(private val apiService: ApiService) {
 
     fun getPlayList(): LiveData<PlayLists?> {
         return liveData(Dispatchers.IO) {

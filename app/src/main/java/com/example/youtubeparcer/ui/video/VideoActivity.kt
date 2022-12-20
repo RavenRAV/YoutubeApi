@@ -3,13 +3,12 @@ package com.example.youtubeparcer.ui.video
 import android.view.LayoutInflater
 import com.example.youtubeparcer.core.ui.BaseActivity
 import com.example.youtubeparcer.databinding.ActivityVideoBinding
-import com.example.youtubeparcer.ui.detail_playlist.DetailPlayListViewModel
 import com.example.youtubeparcer.ui.detail_playlist.DetailPlaylistActivity
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 
 
-class VideoActivity : BaseActivity<ActivityVideoBinding, DetailPlayListViewModel>() {
+class VideoActivity : BaseActivity<ActivityVideoBinding>() {
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityVideoBinding {
         return ActivityVideoBinding.inflate(layoutInflater)
     }

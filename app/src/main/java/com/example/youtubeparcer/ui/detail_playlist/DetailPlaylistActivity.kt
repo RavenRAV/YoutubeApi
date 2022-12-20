@@ -3,15 +3,17 @@ package com.example.youtubeparcer.ui.detail_playlist
 import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import com.example.youtubeparcer.core.ui.BaseActivity
 import com.example.youtubeparcer.data.remote.model.ItemsPLI
 import com.example.youtubeparcer.data.remote.model.PlayLists
 import com.example.youtubeparcer.databinding.ActivityDetailPlaylistBinding
 import com.example.youtubeparcer.ui.playlists.PlayListActivity
 import com.example.youtubeparcer.ui.video.VideoActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DetailPlaylistActivity : BaseActivity<ActivityDetailPlaylistBinding, DetailPlayListViewModel>() {
+class DetailPlaylistActivity : BaseActivity<ActivityDetailPlaylistBinding>() {
+
+    private val viewModel: DetailPlayListViewModel by viewModel()
 
     lateinit var playLists: PlayLists
     lateinit var adapter: DetailPlaylistAdapter
@@ -25,13 +27,8 @@ class DetailPlaylistActivity : BaseActivity<ActivityDetailPlaylistBinding, Detai
     }
 
     override fun initView() {
-        viewModel = ViewModelProvider(this)[DetailPlayListViewModel::class.java]
         val title = intent.getSerializableExtra(PlayListActivity.PLA_DPLA_TITLE) as String
         binding.titleDpl.text = title
-
-        val id = intent.getSerializableExtra(PlayListActivity.PLA_DPLA_ID) as String
-        Toast.makeText(this, id, Toast.LENGTH_SHORT).show()
-
 
     }
 

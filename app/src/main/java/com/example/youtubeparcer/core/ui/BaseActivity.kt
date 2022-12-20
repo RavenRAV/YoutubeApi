@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseActivity<VB: ViewBinding, VM: BaseViewModel> : AppCompatActivity(){
+abstract class BaseActivity<VB: ViewBinding
+//        , VM: BaseViewModel
+        > : AppCompatActivity(){
     protected lateinit var binding: VB
-    protected lateinit var viewModel: VM
+//    protected lateinit var viewModel: VM
     protected abstract fun inflateViewBinding(inflater: LayoutInflater): VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
