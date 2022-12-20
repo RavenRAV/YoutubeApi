@@ -1,9 +1,12 @@
 package com.example.youtubeparcer.ui.detail_playlist
 
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.youtubeparcer.core.ui.BaseActivity
+import com.example.youtubeparcer.core.utils.CheckInternetConnection
 import com.example.youtubeparcer.data.remote.model.ItemsPLI
 import com.example.youtubeparcer.data.remote.model.PlayLists
 import com.example.youtubeparcer.databinding.ActivityDetailPlaylistBinding
@@ -23,12 +26,28 @@ class DetailPlaylistActivity : BaseActivity<ActivityDetailPlaylistBinding>() {
     }
 
     override fun checkInternet() {
+        CheckInternetConnection((getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager))
+            .observe(this) {
+                binding.includedDplInternet.constInternet.isVisible = !it
+                binding.linearContainerDpl.isVisible = it
+                binding.recyclerDetailPlaylist.isVisible = it
+
+                if (it == true) {
+                    initObservers()
+                }
+            }
 
     }
 
     override fun initView() {
         val title = intent.getSerializableExtra(PlayListActivity.PLA_DPLA_TITLE) as String
         binding.titleDpl.text = title
+
+        val desc = intent.getSerializableExtra(PlayListActivity.PLA_DPLA_DESCRIPTION) as String
+        binding.descriptionDpl.text = desc
+
+        val maxRes = intent.getSerializableExtra(PlayListActivity.PLA_DPLA_MAXRES) as String
+        binding.videoCountDpl.text = "$maxRes video series"
 
     }
 

@@ -6,11 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.youtubeparcer.databinding.ItemPlaylistsBinding
 import com.example.youtubeparcer.data.remote.model.Items
-import com.example.youtubeparcer.data.remote.model.PlayLists
 
 class PlaylistsAdapter(
     val list: ArrayList<Items>,
-    private val clickListener: (id: String, title: String) -> Unit):
+    private val clickListener: (id: String, title: String, maxRes : String, desc: String) -> Unit):
     RecyclerView.Adapter<PlaylistsAdapter.PlayListsViewHolder>() {
 
     inner class PlayListsViewHolder(val binding: ItemPlaylistsBinding): RecyclerView.ViewHolder(binding.root) {
@@ -19,7 +18,10 @@ class PlaylistsAdapter(
             binding.tvPlaylistCounter.text = items.contentDetails.itemCount.toString() + " video series"
             binding.imgPlaylists.load(items.snippet.thumbnails.standard.url)
             itemView.setOnClickListener {
-                clickListener(items.id, items.snippet.title)
+                clickListener(items.id,
+                    items.snippet.title,
+                    items.contentDetails.itemCount.toString(),
+                items.snippet.description)
             }
         }
 

@@ -1,7 +1,10 @@
 package com.example.youtubeparcer.ui.video
 
+import android.net.ConnectivityManager
 import android.view.LayoutInflater
+import androidx.core.view.isVisible
 import com.example.youtubeparcer.core.ui.BaseActivity
+import com.example.youtubeparcer.core.utils.CheckInternetConnection
 import com.example.youtubeparcer.databinding.ActivityVideoBinding
 import com.example.youtubeparcer.ui.detail_playlist.DetailPlaylistActivity
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
@@ -14,6 +17,15 @@ class VideoActivity : BaseActivity<ActivityVideoBinding>() {
     }
 
     override fun checkInternet() {
+        CheckInternetConnection((getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager))
+            .observe(this) {
+                binding.includedVideoInternet.constInternet.isVisible = !it
+                binding.constContainerVideo.isVisible = it
+
+                if (it == true) {
+                    initObservers()
+                }
+            }
 
     }
 

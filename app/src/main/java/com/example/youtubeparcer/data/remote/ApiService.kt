@@ -21,6 +21,7 @@ interface ApiService {
     suspend fun getPlayListItems(
         @Query("part") part : String,
         @Query("playlistId") playlistId : String,
-        @Query("key") apiKey : String
+        @Query("key") apiKey : String,
+        @Query("maxResults") maxResults : Int
     ): Response<PlayListItems>
 }

@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.video.VideoActivity">
 
+    <include
+        android:id="@+id/included_video_internet"
+        android:visibility="gone"
+        layout="@layout/no_internet_include"/>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/const_container_video"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:id="@+id/player_video"
@@ -43,6 +52,9 @@
             app:layout_constraintTop_toBottomOf="@+id/title_video"/>
 
     </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 

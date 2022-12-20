@@ -21,7 +21,8 @@ data class ContentDetails(
 
 data class Snippet(
     val title: String,
-    val thumbnails: Thumbnails
+    val thumbnails: Thumbnails,
+    val description : String
 )
 
 data class Thumbnails(

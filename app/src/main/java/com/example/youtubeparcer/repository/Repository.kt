@@ -29,7 +29,8 @@ class Repository(private val apiService: ApiService) {
             val response = apiService.getPlayListItems(
                 part = "snippet",
                 playlistId = id,
-                BuildConfig.API_KEY
+                BuildConfig.API_KEY,
+                10
             )
             if (response.isSuccessful){
                 emit(response.body())
