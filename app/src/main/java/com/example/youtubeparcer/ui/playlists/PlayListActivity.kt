@@ -3,12 +3,15 @@ package com.example.youtubeparcer.ui.playlists
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
+import android.os.Build
 import android.view.LayoutInflater
+import android.view.Window
+import android.view.WindowManager
 import androidx.core.view.isVisible
+import com.example.youtubeparcer.R
 import com.example.youtubeparcer.core.ui.BaseActivity
 import com.example.youtubeparcer.core.utils.CheckInternetConnection
 import com.example.youtubeparcer.data.remote.model.Items
-import com.example.youtubeparcer.data.remote.model.PlayLists
 import com.example.youtubeparcer.databinding.ActivityPlaylistBinding
 import com.example.youtubeparcer.ui.detail_playlist.DetailPlaylistActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
