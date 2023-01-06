@@ -9,7 +9,10 @@ import com.example.youtubeparcer.data.remote.model.Items
 
 class PlaylistsAdapter(
     val list: ArrayList<Items>,
-    private val clickListener: (id: String, title: String, maxRes : String, desc: String) -> Unit):
+    private val clickListener: (id: String,
+                                title: String,
+                                maxRes : String,
+                                desc: String) -> Unit):
     RecyclerView.Adapter<PlaylistsAdapter.PlayListsViewHolder>() {
 
     inner class PlayListsViewHolder(val binding: ItemPlaylistsBinding): RecyclerView.ViewHolder(binding.root) {
