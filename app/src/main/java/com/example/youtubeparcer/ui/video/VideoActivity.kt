@@ -1,5 +1,6 @@
 package com.example.youtubeparcer.ui.video
 
+
 import android.net.ConnectivityManager
 import android.view.LayoutInflater
 import androidx.core.view.isVisible
@@ -11,7 +12,8 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 
 
-class VideoActivity : BaseActivity<ActivityVideoBinding>() {
+abstract class VideoActivity : BaseActivity<ActivityVideoBinding>() {
+
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityVideoBinding {
         return ActivityVideoBinding.inflate(layoutInflater)
     }
@@ -21,6 +23,7 @@ class VideoActivity : BaseActivity<ActivityVideoBinding>() {
             .observe(this) {
                 binding.includedVideoInternet.constInternet.isVisible = !it
                 binding.constContainerVideo.isVisible = it
+
 
                 if (it == true) {
                     initObservers()

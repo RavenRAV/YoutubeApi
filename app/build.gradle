@@ -79,4 +79,8 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-scope:$koin_version"
     implementation "io.insert-koin:koin-androidx-viewmodel:$koin_version"
     implementation "io.insert-koin:koin-androidx-fragment:$koin_version"
+
+
+    //Download
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
 }
